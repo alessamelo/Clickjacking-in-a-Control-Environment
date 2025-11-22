@@ -1,72 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Demo Store - Confirm Payment</title>
-    <style>
-        body {
-            background-color: #fdf7fb;
-            font-family: Arial;
-            text-align: center;
-        }
-        .header {
-            background-color: #d8a8c0;
-            padding: 40px;
-            font-size: 60px;
-            font-weight: bold;
-            color: black;
-        }
-        p {
-            margin-top: 40px;
-            font-size: 20px;
-        }
-        button {
-            margin-top: 30px;
-            background-color: #d8a8c0;
-            padding: 20px 60px;
-            font-size: 22px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <title>DEMO Bank - Transfer Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="victim.css">
 </head>
 
 <body>
 
-    <div class="header">Demo<br>STORE</div>
+    <!-- Header -->
+    <div class="premium-header">
+        DEMO BANK <span>PREMIER</span>
+        <div class="sub">Fast Transference Confirmation</div>
+        <div class="sub2">The Confidence Bank Since 1996</div>
+    </div>
 
-    <p>This is a demo page with a vulnerability.</p>
-    <p>This page hypothetically contains credit or transfer information.</p>
+    <!-- Main confirmation card -->
+    <div class="bank-card">
+        <p class="big-message">Confirm Your Transfer</p>
 
-    <p id="text"></p>
+        <p>
+            You are about to send <strong id="amount-display"></strong> USD<br>
+            to account number: <strong id="account-display"></strong>
+        </p>
 
-    <button onclick="confirmPay()">Confirm now</button>
+        <p class="big-thankyou">Please review and confirm your transaction.</p>
+    </div>
+
+
+
+    <!-- IMPORTANT — BUTTON MUST STAY EXACTLY THE SAME FOR CLICKJACKING -->
+    <button id="prize-btn" onclick="confirmPay()">CONFIRM</button>
+    <!-- IMPORTANT — BUTTON MUST STAY EXACTLY THE SAME FOR CLICKJACKING -->
+       <div style="height:80px;"></div>
+  <!-- Extra message -->
+    <p class="msg">This page hypothetically contains credit or transfer information.</p>
+
+    <!-- Transfer description -->
+    <p id="text" class="transfer-text"></p>
+
+    <!-- Bank seals -->
+    <div class="bank-seal">✔ Secure Transaction Verification</div>
+
+    <div class="tagline">
+        DEMO Bank • Financial Confidence for Everyone<br>
+        Secure Banking Since 1996 • Official Customer Loyalty Program
+    </div>
 
     <script>
-        // Extract user from URL
+        // Extract values
         const params = new URLSearchParams(window.location.search);
-        const user = params.get("user") || "unknown@example.com";
+        const account = params.get("user") || "00000000000";
+        const amount  = params.get("amount") || "1000";
 
+        // Fill UI
+        document.getElementById("account-display").innerHTML = account;
+        document.getElementById("amount-display").innerHTML  = amount;
         document.getElementById("text").innerHTML =
-            "You are sending $1000 to " + user;
+            "You are sending $" + amount + " to account number " + account;
 
-
-
+        // Log + confirmation alert
         function confirmPay() {
-                fetch("/log.php")
-        .then(() => {
-            alert("Payment sent!");
-        })
-        .catch(() => {
-            alert("Error logging action");
-        });
-}
-
-
-
-
+            fetch("/log.php")
+                .then(() => {
+                    alert("Payment of $" + amount + " sent to account " + account + "!");
+                })
+                .catch(() => {
+                    alert("Error logging action");
+                });
+        }
     </script>
 
 </body>
 </html>
-
